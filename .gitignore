@@ -1,0 +1,12 @@
+# ignore log file 
+.log 
+
+# ignore environment file 
+.env
+
+#igmore node modules
+node_modules/
+
+#ignore macOs
+.Ds_Store
+
