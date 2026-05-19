@@ -1,0 +1,76 @@
+{
+  "info": {
+    "_postman_id": "183f1c6a-97b8-4584-8815-eaa0647686bf",
+    "name": "Conference Room Booking API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "38439885"
+  },
+  "item": [
+    {
+      "name": "User Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"employee@example.com\",\r\n  \"password\": \"Password123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.conferencerooms.example.com/v1/auth/login",
+          "protocol": "https",
+          "host": [
+            "api",
+            "conferencerooms",
+            "example",
+            "com"
+          ],
+          "path": [
+            "v1",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Booking",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"roomId\": 1,\r\n  \"employeeId\": 25,\r\n  \"date\": \"2026-05-20\",\r\n  \"startTime\": \"09:00\",\r\n  \"endTime\": \"10:00\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.conferencerooms.example.com/v1/bookings",
+          "protocol": "https",
+          "host": [
+            "api",
+            "conferencerooms",
+            "example",
+            "com"
+          ],
+          "path": [
+            "v1",
+            "bookings"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
