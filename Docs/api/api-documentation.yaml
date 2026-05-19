@@ -1,0 +1,108 @@
+openapi: 3.0.3
+
+info:
+  title: Conference Room Booking System API
+  version: 1.0.0
+  description: API documentation for the Conference Room Booking System.
+
+servers:
+  - url: https://api.conferencerooms.example.com/v1
+    description: Production server
+
+security:
+  - bearerAuth: []
+
+paths:
+
+  /auth/login:
+    post:
+      summary: Authenticate user
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Login successful
+
+  /rooms:
+    get:
+      summary: Get conference rooms
+      responses:
+        '200':
+          description: Rooms returned successfully
+
+  /availability:
+    get:
+      summary: Check room availability
+      parameters:
+        - name: date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: Available rooms returned
+
+  /bookings:
+    post:
+      summary: Create booking
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateBookingRequest'
+      responses:
+        '201':
+          description: Booking created successfully
+
+  /bookings/{bookingId}:
+    delete:
+      summary: Cancel booking
+      parameters:
+        - name: bookingId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Booking cancelled successfully
+
+components:
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+
+    LoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+
+    CreateBookingRequest:
+      type: object
+      properties:
+        roomId:
+          type: integer
+        employeeId:
+          type: integer
+        date:
+          type: string
+        startTime:
+          type: string
+        endTime:
+          type: string
