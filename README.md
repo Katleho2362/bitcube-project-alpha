@@ -61,14 +61,76 @@ Contribution process:
 6. Request review from a teammate
 7. Merge changes after review
 
+
+## Quick Start
+
+### Run Without Docker
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/Katleho2362/bitcube-project-alpha.git
+```
+
+2. Navigate into the project folder
+
+```bash
+cd bitcube-project-alpha
+```
+
+3. Run the application
+
+```bash
+python src/main.py
+```
+
+---
+
+## Run With Docker
+
+### Build Docker Image
+
+```bash
+docker build -t bitcube-project-alpha:v1 .
+```
+
+### Run Docker Container
+
+```bash
+docker run -p 5000:5000 -e APP_ENV=development -e API_VERSION=1.0.0 bitcube-project-alpha:v1
+```
+
+---
+
+## Environment Variables
+
+| Variable | Description |
+|---|---|
+| APP_ENV | Application environment |
+| API_VERSION | Current API version |
+
+---
+
+## API Documentation
+
+API documentation files are located in:
+
+```text
+Docs/api/
+```
+
+Included documentation:
+- OpenAPI YAML specification
+- Swagger documentation screenshots
+- Postman collection
+- API usage examples
+
 ---
 
 ## Future Technical Sections
 
 Future versions of this repository may include:
 
-- Installation guide
-- API documentation
 - Database design
 - Testing guide
 - Deployment guidance
